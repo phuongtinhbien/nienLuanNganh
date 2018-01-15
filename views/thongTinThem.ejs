@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body{height:100%;
+        width:100%;
+    
+        justify-content: center;
+        background-image:url("/admin_bg");/*your background image*/  
+        background-repeat:no-repeat;/*we want to have one single image not a repeated one*/  
+        background-size:cover;/*this sets the image to fullscreen covering the whole screen*/  
+        /*css hack for ie*/     
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/admin_bg",sizingMethod='scale');
+        -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/admin_bg',sizingMethod='scale')";
+     }
+    </style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trophic - Thông tin</title>
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-static-top" style="background-color:white" role="navigation">
+                <div class="container-fluid">
+                  <ul class="nav-left">
+                      <nav class="navbar navbar-light">
+                          <a class="navbar-brand" href="/home">
+                            <img src="/brand" width="30px" height="30px" class="d-inline-block align-top" alt="" >
+                            <b>TROPHIC</b>
+                          </a>
+                        </nav>
+                  </ul>
+                  <ul class="nav-right">
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                      
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link" href="/home"><b>TRANG CHỦ</b><span class="sr-only">(current)</span></a>
+                            </li>
+                        
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="/thucPham" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                THỰC PHẨM
+                              </a>
+                              <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/thucPham/chatBeo">Chất béo</a>
+                                <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                                <a class="dropdown-item" href="/thucPham/chatDam">Chất đạm</a>
+                                <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                                <a class="dropdown-item" href="/thucPham/chatBotDuong">Chất bột đường</a>
+                                <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                                <a class="dropdown-item" href="/thucPham/vitaminKC">Vitamin & Khoáng chất</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/dinhDuong" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 DINH DƯỠNG
+                                </a>
+                                <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="/dinhDuong/vitamin">Vitamin</a>
+                                  <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                                  <a class="dropdown-item" href="/dinhDuong/khoangChat">Khoáng chất</a>
+                                  <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                                  <a class="dropdown-item" href="/dinhDuong/cck">Các chất khác</a>
+                                  
+                                  </div>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/thongTinThem">THÔNG TIN THÊM<span class="sr-only">(current)</span></a>
+                                  </li>
+                          </ul>
+                         
+                        </div>
+                  </ul>
+                  
+                  </div>
+                
+            </nav>
+    <div class="container align-middle align-self-center align-items-center h-100" style="margin-top:120px">
+        <div class="row justify-content-center align-self-center ">
+                <div class="card z-depth-5 text-justify" style=" width:40rem;box-shadow: 10px 12px 20px; border-radius:0px">
+                        <div class="card-body">
+                            <div class="card-title ">
+                                <legend class=" display-4 text-center">
+                                    <img src="/brand" width="80px" height="80px" class="d-inline-block align-top" alt="" >
+                                        TROPHIC
+                                </legend>
+                            </div>
+                            <div class="container-fluid" style="margin-top:20px">
+                                    <p class="font-weight-normal text-center">
+                                        Trophic là một sản phẩm phần mềm được tạo ra với mục đích
+                                        là nơi cho mọi người tra cứu các thông tin dinh dưỡng của các loại thực phẩm
+                                        có hiện tại.
+                                        <br>
+                                        <br>
+                                        Trong quá trình xây dựng khó tránh khỏi sự thiếu sót mong nhận được phản hồi
+                                        từ mọi người.
+                                    </p>
+
+                                    <hr style="margin-left:20px; margin-right:20px;border-color:black"></hr>
+                                    <p class="font-weight-normal text-center" style="font-size: 24px">NHÓM SÁNG TẠO</p>
+                                
+                                <div class="row">
+                                    <div class="col-xs- col-sm- col-md- col-lg-">
+                                        
+                                    </div>
+                                    <div class="col-xs- col-sm- col-md- col-lg-">
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+      
+                  
+</body>
+</html>

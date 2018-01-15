@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body{height:100%;
+        width:100%;
+    
+        justify-content: center;
+        background-image:url("/admin_bg");/*your background image*/  
+        background-repeat:no-repeat;/*we want to have one single image not a repeated one*/  
+        background-size:cover;/*this sets the image to fullscreen covering the whole screen*/  
+        /*css hack for ie*/     
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/admin_bg",sizingMethod='scale');
+        -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/admin_bg',sizingMethod='scale')";
+     }
+    </style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản trị</title>
+</head>
+<body>
+    <div class="container align-middle align-self-center align-items-center h-100" style="margin-top:120px">
+        <div class="row justify-content-center align-self-center ">
+                <div class="card z-depth-5" style="width: 30rem; box-shadow: 10px 12px 20px; border-radius:20px">
+                        <div class="card-body">
+                            <div class="card-title ">
+                                <legend class="text-center">ĐĂNG NHẬP</legend>
+                                <p class="text-center text-muted" style="font-size:11px">Bạn cần đăng nhập để truy cập trang này</p>
+                            </div>
+                            <div class="container-fluid">
+                                
+                                    <form method="post" action="/signin">
+                                        <div class="form-group">
+                                          <label for="InputEmail1">Tên đăng nhập</label>
+                                          <input type="text" class="form-control" name="InputEmail" id="InputEmail" aria-describedby="emailHelp" placeholder="Nhập địa chỉ email">
+                        
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="InputPassword1">Mật khẩu</label>
+                                          <input type="password" class="form-control" name="InputPassword" id="InputPassword" placeholder="Mật khẩu">
+                                        </div>
+                                        <div class="text-center"><input type="submit" class="btn btn-outline-success" value="ĐĂNG NHẬP"></input></div>
+                                      </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+      
+                  
+</body>
+</html>
