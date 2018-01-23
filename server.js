@@ -1,10 +1,21 @@
 //INITITIAL
 var express = require("express");
 const bodyParser= require('body-parser');
-var app = express();
 var multer = require('multer')
-//GET DATA FROM #FORM
+var app = express();
+var Task = require('./api/models/user');
+var userCon = require('./api/controls/userCon');
 
+var session = require('express-session');
+
+var bcrypt = require('bcrypt');
+
+var rou = require("./api/routes/userRoutes");
+app.listen(3000, () => {
+    //NOTIFICATON CONNECT SUCCESSFULLY
+    console.log("SUCCESSFULLY......");
+});
+//GET DATA FROM #FORM
 
 //LUU FILE
 var storage = multer.diskStorage({
@@ -16,20 +27,11 @@ var storage = multer.diskStorage({
     }
 });
 var upload = multer({storage:storage});
-
-app.listen(3000, () => {
-    //NOTIFICATON CONNECT SUCCESSFULLY
-    console.log("SUCCESSFULLY......");
-});
 //DATABASE
-const uri = "mongodb://guest:phuong12@cluster0-shard-00-00-ifmcb.mongodb.net:27017,cluster0-shard-00-01-ifmcb.mongodb.net:27017,cluster0-shard-00-02-ifmcb.mongodb.net:27017?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
 const Mongo = require('mongodb').MongoClient;
-
 app.set("view engine","ejs");
 app.set("views", "./views")
 app.use(bodyParser.urlencoded({extended: true}));
-
-
 //ADMIN
 app.get("/admin_bg",function(req,res){
     res.sendFile(__dirname+"/assets/bg_admin_login.png")
@@ -38,6 +40,10 @@ app.get("/admin",function(req,res){
 
     res.render("signin")
 });
+rou(app)
+// app.get("/admin/:id", function(req,res){
+
+// });
 //HOME
 app.get("/", function(req,res){
     res.sendFile(__dirname + '/index.html');
@@ -63,18 +69,33 @@ app.get("/thucPham_img/:id",function(req,res){
     res.sendFile(__dirname+"/assets/"+id+".png");
 })
 
+app.use(session({
+    secret: 'work hard',
+    resave: true,
+    saveUninitialized: false
+  }));
+
 //SIGN IN
+
 app.post ("/signin",function(req,res){
-    var email = req.body.InputEmail;
-    var pass = req.body.InputPassword;
-    var uri = "mongodb://"+email+":"+pass+"@cluster0-shard-00-00-ifmcb.mongodb.net:27017,cluster0-shard-00-01-ifmcb.mongodb.net:27017,cluster0-shard-00-02-ifmcb.mongodb.net:27017?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
-    MongoClient.connect(uri,(err)=>{
-        if (err) return console.log(err);
-        else{
-            res.render("admin");
+    if (req.session) res.render("admin");
+    else{
+        var email = req.body.InputEmail;
+        var pass = req.body.InputPassword;
+       
+    }
+});
+app.get('/logout', function(req, res, next) {
+    if (req.session) {
+      // delete session object
+      req.session.destroy(function(err) {
+        if(err) {
+          return next(err);
+        } else {
+          return res.redirect('/admin');
         }
-    });
-    
+      });
+    }
 });
 
 //THUC PHAM

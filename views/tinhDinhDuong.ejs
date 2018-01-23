@@ -16,7 +16,7 @@
     color: #fff;
     height: 450px;
     text-align: bottom;
-    padding-top: 15rem;
+    padding-top: 12rem;
 }
 </style>
     <meta charset="UTF-8">
@@ -25,6 +25,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trophic - Tra cứu dinh dưỡng</title>
   
@@ -93,35 +96,50 @@
     </nav>
     <div class="bg-overlay">
         
-        <div class="container align-self-end">
+        <div class="container align-self-end" style="padding-bottom:5px">
                 
                     <h1>Quy tắc dinh dưỡng</h1>
                     <h4 class="font-weight-light ml-5">Không một thực phẩm nào có thể cung cấp đầy đủ chất dinh dưỡng cho cơ thể, vì vậy chúng ta cần phối hợp ăn nhiều loại thực phẩm.</h4>
-                    <br><h4 class="font-weight-light ml-5"> Đảm bảo đủ <b>20-30</b> loại thực phẩm khác nhau thì mới đảm bảo đủ chất. </h4>
+                    <h4 class="font-weight-light ml-5"> Đảm bảo đủ <b>20-30</b> loại thực phẩm khác nhau thì mới đảm bảo đủ chất. </h4>
 
             </div>
         </div>
     
     <div class="container" style="margin-bottom:80px">
-        <h1 style="margin-left:60px; margin-top:60px">Tính dinh dưỡng</h1>
+        <h1 style=" margin-top:60px"><b>Tính dinh dưỡng</b></h1>
         
         <div class="row">
               
-        <div class="col" style="margin-left:60px; margin-top:50px">
-                <h5 class="font-weight-light"><b>Danh sách thực phẩm</b></h5>
-                <ul>
-                    
-                </ul>
-                <form action="/" method="POST" role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="thucPhamName" placeholder="Nhập tên thực phẩm">
-                    </div>
-                    <input type="submit" class="btn btn-outline-success" value="THÊM VÀO DANH SÁCH"></input>
-                </form>
+        <div class="col" style="margin-left:30px; margin-top:40px">
+                <div class="mdl-card mdl-shadow--8dp" style="width:100%">
+                        <div class="card-block" style="padding:20px">
+                                <h5 class="font-weight-light"><b>Danh sách thực phẩm</b></h5>
+                                <ul>
+                                    
+                                </ul>
+                                <form action="/" method="POST" role="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="thucPhamName" placeholder="Nhập tên thực phẩm">
+                                    </div>
+                                    <input type="submit" class="btn btn-outline-success" value="THÊM VÀO DANH SÁCH"></input>
+                                </form>
+                                <div>
+                                    <h5 class="font-weight-light"><b>Gợi ý</b></h5>
+                                </div>
+                        </div>
+                      </div>
+              
                 
             </div>
-            <div class="col" style="margin-left:60px;margin-top:50px">
+            
+            <div class="col">
+                    <div class="col" style="margin-left:60px; margin-top:50px">
+                            <div class="mdl-card mdl-shadow--8dp" style="width:100%">
+                                    <div class="card-block" style="padding:20px">
                     <h5 class="font-weight-light"><b>Bảng kết quả dinh dưỡng</b></h5>
+                                    </div>
+                            </div>
+                    </div>
                 
             </div>
         </div>

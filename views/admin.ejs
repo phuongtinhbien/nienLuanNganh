@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+                .demo-layout-transparent {
+                  background: url('/header') center / cover;
+                }
+                .demo-layout-transparent .mdl-layout__header,
+                .demo-layout-transparent .mdl-layout__drawer-button {
+                  /* This background is dark, so we set text to white. Use 87% black instead if
+                     your background is light. */
+                  color: white;
+                }
+                </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản trị</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+
+</head>
+<body>
+  <div class="demo-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--transparent mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <div class="mdl-layout-title">Trophic</div>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only" style="font-size:25px">
+        <a class="mdl-navigation__link" href="">Trang chính</a>
+        <a class="mdl-navigation__link" href="">Dinh dưỡng</a>
+        <a class="mdl-navigation__link" href="">Thực phẩm</a>
+
+        <a class="mdl-navigation__link" href="/logout">Đăng xuất</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer mdl-layout--fixed-drawer">
+        <div class="mdl-layout-title">
+                <img src ="/brand" width="30px">
+                <span>Trophic</span>
+        </div>
+
+    <nav class="mdl-navigation">
+
+        <span style="margin-left: 10px"><b>Tìm kiếm</b></span>
+            <div class=" mdl-navigation__link mdl-textfield mdl-js-textfield mdl-textfield--expandable
+            mdl-textfield--floating-label mdl-textfield--align-right">
+  <label class="mdl-button mdl-js-button mdl-button--icon"
+         for="waterfall-exp">
+    <i class="material-icons">search</i>
+  </label>
+  <div class="mdl-textfield__expandable-holder">
+    <input class="mdl-textfield__input" type="text" name="sample"
+           id="waterfall-exp">
+  </div>
+</div>
+<div class="mdl-layout-spacer"></div>
+<span style="margin-left: 10px"><b>Công cụ</b></span>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">home</i>&nbsp; Trang chính</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">spa</i>&nbsp; Dinh dưỡng</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">restaurant</i>&nbsp; Thực phẩm</a>
+            <div class="mdl-layout-spacer"></div>
+            <span style="margin-left: 10px"><b>Tài khoản</b></span>
+            <a class="mdl-navigation__link" href="/admin/createAccount"><i class="material-icons">person</i>&nbsp; Tạo tài khoản</a>
+            <a class="mdl-navigation__link" href="/logout"><i class="material-icons">exit_to_app</i>&nbsp; Đăng xuất</a>
+          </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="mdl-js-layout">
+          <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--4-col" >
+                  <%- include('partials/create_Account') %>
+              </div>
+            </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
