@@ -6,7 +6,7 @@ import ast
 import pandas as pd
 from urllib import request
 # import pandas as pd
-r = requests.get('https://www.google.com.vn/search?sa=X&biw=1366&bih=638&q=Pho+m%C3%A1t&stick=H4sIAAAAAAAAAONgFuLUz9U3SMsyNSpW4gAxDfOyS7QE_UpLijJLMvPzgjNTUssTK4sBuRulXyoAAAA&npsic=-1876&ved=0ahUKEwiX162CytLYAhWDN48KHY7oC0AQ-BYIXw')
+r = requests.get('https://www.google.com.vn/search?q=c%C3%A0+t%C3%ADm&oq=c%C3%A0+t%C3%ADm&aqs=chrome..69i57j69i61j0l6.1318j0j9&sourceid=chrome&ie=UTF-8')
 
 uri = "mongodb://phuongtinhbien:phuongEa5AnbNL@cluster0-shard-00-00-ifmcb.mongodb.net:27017,cluster0-shard-00-01-ifmcb.mongodb.net:27017,cluster0-shard-00-02-ifmcb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
 client = MongoClient(uri)
@@ -61,7 +61,7 @@ def is_number(s):
 
     return True
 
-url = "https://www.google.com.vn/search?sa=X&biw=1366&bih=638&q=Pho+m%C3%A1t&stick=H4sIAAAAAAAAAONgFuLQz9U3sDQ3slACswzzsku0BP1KS4oySzLz84IzU1LLEyuLAQzTxrwpAAAA&npsic=0&ved=0ahUKEwiTm6bE7dLYAhUHto8KHXs3CpIQ-BYIIw"
+url = "https://www.google.com.vn/search?q=c%C3%A0+t%C3%ADm&oq=c%C3%A0+t%C3%ADm&aqs=chrome..69i57j69i61j0l6.1318j0j9&sourceid=chrome&ie=UTF-8"
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/68.4.126 Chrome/62.4.3202.126 Safari/537.36'}
 
 def getData (url):

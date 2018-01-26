@@ -5,17 +5,19 @@ var multer = require('multer')
 var app = express();
 var Task = require('./api/models/user');
 var userCon = require('./api/controls/userCon');
-
 var session = require('express-session');
-
 var bcrypt = require('bcrypt');
+var io = require('socket.io');
+var server = require('http').createServer(app);
+io = io.listen('8080', '192.168.28.101');
 
 var rou = require("./api/routes/userRoutes");
-app.listen(3000, () => {
+app.listen(80, "192.168.28.101", () => {
     //NOTIFICATON CONNECT SUCCESSFULLY
     console.log("SUCCESSFULLY......");
 });
 //GET DATA FROM #FORM
+var uri = "mongodb://phuongtinhbien:phuongEa5AnbNL@cluster0-shard-00-00-ifmcb.mongodb.net:27017,cluster0-shard-00-01-ifmcb.mongodb.net:27017,cluster0-shard-00-02-ifmcb.mongodb.net:27017/TrophicDB?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
 
 //LUU FILE
 var storage = multer.diskStorage({
@@ -58,6 +60,13 @@ app.get("/home", function(req,res){
 app.get("/header", function(req,res){
     res.sendFile(__dirname + '/assets/Path1.png');
 });
+app.get("/head1", function(req,res){
+    res.sendFile(__dirname + '/assets/head1.png');
+});
+
+app.get("/css",(req, res)=>{
+    res.sendFile(__dirname+"/css/styles.css");
+})
 
 //BRAND
 app.get("/brand", function(req,res){
