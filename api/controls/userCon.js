@@ -26,7 +26,7 @@ exports.create_a_type = function(req, res) {
 };
 
 exports.read_a_type = function(req, res) {
-  Type.findById(req.params.typeId, function(err, type) {
+  Type.findOne({username: req.params.username}, function(err, type) {
     if (err)
       res.send(err);
     res.json(type);
@@ -41,8 +41,20 @@ exports.update_a_type = function(req, res) {
   });
 };
 
-
-
+exports.log_in = function(req, res){
+  console.log(req.body);
+    Type.findOne({username: req.body.InputEmail}, function(err, type){
+      if (err) throw err;
+      res.render("admin");
+      console.log(type);
+      type.comparePassword(req.body.password, function(err, isMatch){
+        console.log(err);
+        if (err) {return res.render("admin")};
+          if (isMatch)
+            return res.render("admin");
+      });
+    });
+  }
 
 exports.delete_a_type = function(req, res) {
 

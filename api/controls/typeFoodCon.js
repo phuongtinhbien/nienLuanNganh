@@ -20,7 +20,7 @@ exports.create_a_type = function(req, res) {
 
 
 exports.read_a_type = function(req, res) {
-  Type.findById(req.params.typeId, function(err, type) {
+  Type.find({key:req.params.typeId}, function(err, type) {
     if (err)
       res.send(err);
     res.json(type);
@@ -29,7 +29,7 @@ exports.read_a_type = function(req, res) {
 
 
 exports.update_a_type = function(req, res) {
-  Type.findOneAndUpdate({_id: req.params.typeId}, req.body, {new: true}, function(err, type) {
+  Type.findOneAndUpdate({key: req.params.typeId}, req.body, {new: true}, function(err, type) {
     if (err)
       res.send(err);
     res.json(type);

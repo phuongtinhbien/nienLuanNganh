@@ -9,6 +9,7 @@
   float: right; 
 }
 .bg-overlay {
+    
     background: linear-gradient(rgba(0,0,0,.32), rgba(0,0,0,.32)), url(<%-img%>);
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,7 +18,10 @@
     height: 450px;
     padding-top: 50px;
     text-align: center;
+    font-size: max(1em, 12px);
 }
+
+
 </style>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -31,94 +35,60 @@
 </head>
 <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light  navbar-static-top" role="navigation">
-                <div class="container-fluid">
-                  <ul class="nav-left">
-                      <nav class="navbar navbar-light">
-                          <a class="navbar-brand" href="/home">
-                            <img src="/brand" width="30px" height="30px" class="d-inline-block align-top" alt="" >
-                            <b>TROPHIC</b>
-                          </a>
-                        </nav>
-                  </ul>
-                  <ul class="nav-right">
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                      
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                          <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                              <a class="nav-link" href="/home"><b>TRANG CHỦ</b><span class="sr-only">(current)</span></a>
-                            </li>
-                        
-                            <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="/thucPham" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                THỰC PHẨM
-                              </a>
-                              <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/thucPham/chatBeo">Chất béo</a>
-                                <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                                <a class="dropdown-item" href="/thucPham/chatDam">Chất đạm</a>
-                                <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                                <a class="dropdown-item" href="/thucPham/chatBotDuong">Chất bột đường</a>
-                                <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                                <a class="dropdown-item" href="/thucPham/vitaminKC">Vitamin & Khoáng chất</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/dinhDuong" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 DINH DƯỠNG
-                                </a>
-                                <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/dinhDuong/vitamin">Vitamin</a>
-                                  <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                                  <a class="dropdown-item" href="/dinhDuong/khoangChat">Khoáng chất</a>
-                                  <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                                  <a class="dropdown-item" href="/dinhDuong/cck">Các chất khác</a>
-                                  
-                                  </div>
-                                </li>
-        
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/thongTinThem">THÔNG TIN THÊM<span class="sr-only">(current)</span></a>
-                                </li>
-                        </ul>
-                         
-                    </div>
-                </ul>
-                  
-            </div>
-                
-        </nav>
+        <%- include("partials/nav") %>
                 
         <div class="bg-overlay">
             <div class="container">   
                <br>
                <br>
-                <h2 class="text-center display-4 text-justify"><%-intro%></h2>
+                <h2 class="text-center display-4" style="font-size: max(1em, 12px);" ><%-intro%></h2>
                 
             </div>
         </div>
-
-        <div class="container" style="margin-top:50px">
-            <a class="text-left" data-toggle="collapse" href="#vaiTro" role="button" aria-expanded="true" aria-controls="vaiTro" style="color:black"><h1>Vai trò</h1> </a>
-            <div class="collapse show" id="vaiTro">
-                <blockquote class="blockquote">
-                    <p class="ml-5"><%-content%></p>
-                </blockquote>
-            </div>
+        
+        <div class="container" style="margin-top:20px;background-image:url(<%-bg%>); background-repeat:no-repeat;background-size:contain; background-position:right">
+                <div class="d-flex justify-content-center">
+                        <h2 class="display-4 text-title" style="font-size: 36px; margin-bottom:10px">Vai trò của <%-name%></h2>
+                        <a name="next"></a>
+                    </div>
+                   
+                <div class="card-deck">
+                        <div class="card" style="border-color:transparent">
+                                <div class="container" style="margin-top:30px">
+                                        
+                                            <blockquote class="blockquote" style="text-align:unset;">
+                                                <p class="ml-5" style="font-size:14px;text-align:justify;"><%-content%></p>
+                                            </blockquote>
+                                       
+                                        
+                                    </div>
+                                    </div>
+                                  <div class="card" style="border-color:transparent;background-color:transparent">
+                                        
+                                  </div>
             
+                        </div>
+                       
         </div>
-        <div class="container" style="margin-top:50px">
-                <a class="text-left" data-toggle="collapse" href="#thucPham" role="button" aria-expanded="true" aria-controls="vaiTro" style="color:black"><h1>Thực phẩm chủ yếu</h1> </a>
-                <div class="collapse show" id="thucPham">
-                    <blockquote class="blockquote">
-                        <p class="ml-5"><%-content%></p>
-                    </blockquote>
+        <div class="dropdown-divider" style=" margin-top: 50px;margin-left:50px; margin-right:50px"></div>
+
+
+    <div class="container">
+            <div class="d-flex justify-content-center">
+                    <h2 class="display-4 text-title" style="font-size: 36px;">Thực phẩm tiêu biểu</h2>
+                    <a name="next"></a>
                 </div>
-                
-            </div>
+    </div>
+
+
+
+
+
+        <%- include("partials/footer") %>
+     
+
+        
+        
           
            
     </body>

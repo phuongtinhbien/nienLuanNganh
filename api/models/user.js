@@ -25,6 +25,12 @@ userSchema.methods.getUID = function(){
     return this.uid;
 }
 
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(this.password,candidatePassword, function(err, isMatch) {
+        if (err) return cb(err);
+        else return cb(null, isMatch);
+    });
+};
 userSchema.pre('save', function (next) {
     var user = this;
     bcrypt.hash(user.password, 10, function (err, hash){

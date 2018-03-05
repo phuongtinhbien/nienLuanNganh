@@ -7,9 +7,13 @@ module.exports = function(app) {
       .post(User.create_a_type);
   
   
-    app.route('/user/:typeId')
+    app.route('/user/:username')
       .get(User.read_a_type)
       .put(User.update_a_type)
       .delete(User.delete_a_type);
-  };
+
+    app.route('/signin').post(User.log_in);
+};
+
+
   

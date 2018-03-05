@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Trophic</title>
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_green-green.min.css" />
+    <link rel="stylesheet" href="/css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+          <img class="android-logo-image" src="/brand">
+          </span>
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+              <i class="material-icons">search</i>
+            </label>
+            <!-- <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-field">
+            </div> -->
+          </div>
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/thucPham/chatBeo">Chất béo</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/thucPham/chatDam">Chất đạm</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/thucPham/chatBotDuong">Bột đường</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Chất xơ</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Vitamin</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Khoáng chất</a>
+              
+             
+            </nav>
+          </div>
+          <span class="android-mobile-title mdl-layout-title" style="color:#07A859">
+              <img class="android-logo-image" src="/brand">
+          </span>
+          <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+            <li class="mdl-menu__item"> <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/thongTinThem"> Thông tin thêm</a></li>
+            <li class="mdl-menu__item " style="text-align:center">Version: 1.0</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title" style="color:white">
+            <img class="android-logo-image" src="/brand">
+          </span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link " href="/thucPham/chatBeo">Chất béo</a>
+          <a class="mdl-navigation__link " href="/thucPham/ChatDam">Chất đạm</a>
+          <a class="mdl-navigation__link " href="/thucPham/chatBotDuong">Bột đường</a>
+          <a class="mdl-navigation__link " href="">Chất xơ</a>
+          <a class="mdl-navigation__link " href="">Vitamin</a>
+          <a class="mdl-navigation__link " href="">Khoáng chất</a>
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">Thêm</span>
+          <a class="mdl-navigation__link" href="/thongTinThem">Thông tin thêm</a>
+          <span class="mdl-navigation__link" style="text-align:center">Version: 1.0</span>
+        </nav>
+      </div>
+
+      <div class="android-content mdl-layout__content">
+        <a name="top"></a>
+        <div class="android-be-together-section mdl-typography--text-center">
+          <div class="logo-font android-slogan">thực phẩm dinh dưỡng</div>
+          <div class="logo-font android-sub-slogan">với TROPHIC... tìm kiếm. tra cứu dinh dưỡng. lập danh sách dinh dưỡng.</div>
+         
+         <div class="mdl-card mdl-shadow--2dp" style="height: auto">
+           <div class="mdl-card__title mdl-card--expand">
+             
+          
+  
+           <form action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="border:#07A859, border=1dp">
+                <input class="mdl-textfield__input" type="text" id="sample3">
+                <label class="mdl-textfield__label" for="sample3">Text...</label>
+              </div>
+            </form>
+           </div>
+         </div>
+         
+          <div class="logo-font android-create-list">
+            <a href="/tinhDinhDuong"><img src="images/andy.png"> tạo chuỗi dinh dưỡng cho riêng bạn</a>
+          </div>
+          <a href="#screens">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+        </div>
+     
+        <div class="android-customized-section">
+            <a name="screens"></a>
+          <div class="android-customized-section-text">
+            <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Xây dựng chế độ. Cho riêng bạn</div>
+            <p class="mdl-typography--font-light">
+              Một số chế độ ăn dành cho từng mục đích của bạn
+              <br>
+            </p>
+            </div>
+            <div class="android-more-section">
+            <div class="android-card-container mdl-grid">
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                  <div class="mdl-card__media">
+                      <img src="images/more-from-4.png">
+                  </div>
+                  <div class="mdl-card__title">
+                     <h4 class="mdl-card__title-text">Ăn kiêng lành mạnh tốt sức khỏe</h4>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                    <span class="mdl-typography--font-light mdl-typography--subhead">Chế độ ăn kiêng giúp giảm 8 kg chỉ trong 7 ngày</span>
+                  </div>
+                  <div class="mdl-card__actions">
+                     <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                       Xem thử
+                       <i class="material-icons">chevron_right</i>
+                     </a>
+                  </div>
+                </div>
+    
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                  <div class="mdl-card__media">
+                    <img src="images/more-from-4.png">
+                  </div>
+                  <div class="mdl-card__title">
+                     <h4 class="mdl-card__title-text">3 chiến lược tăng cân nhanh trong một tháng</h4>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                    <span class="mdl-typography--font-light mdl-typography--subhead">Bạn muốn tăng cân nhanh ngoài chế độ ăn uống thì luyện tập cũng hết sức quan trọng.</span>
+                  </div>
+                  <div class="mdl-card__actions">
+                     <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                       Xem thử
+                       <i class="material-icons">chevron_right</i>
+                     </a>
+                  </div>
+                </div>
+    
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                  <div class="mdl-card__media">
+                    <img src="images/more-from-2.png">
+                  </div>
+                  <div class="mdl-card__title">
+                     <h4 class="mdl-card__title-text">Chế độ dinh dưỡng cho bà bầu theo từng tháng mang thai</h4>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                    <span class="mdl-typography--font-light mdl-typography--subhead">Chế độ dinh dưỡng cho bà bầu có ảnh hưởng lớn tới sự phát triển của thai nhi và sức khỏe của người mẹ.</span>
+                  </div>
+                  <div class="mdl-card__actions">
+                     <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                     XEM THỬ
+                       <i class="material-icons">chevron_right</i>
+                     </a>
+                  </div>
+                </div>
+    
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+                  <div class="mdl-card__media">
+                    <img src="images/more-from-3.png">
+                  </div>
+                  <div class="mdl-card__title">
+                     <h4 class="mdl-card__title-text">Chế độ dinh dưỡng cho người cao tuổi</h4>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                    <span class="mdl-typography--font-light mdl-typography--subhead">Những thay đổi ở người cao tuổi: do lão hóa mà chức năng của các hệ tiêu hóa, hệ tim mạch, hệ tiết niệu… suy giảm ở người cao tuổi.</span>
+                  </div>
+                  <div class="mdl-card__actions">
+                     <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                      xem thử
+                       <i class="material-icons">chevron_right</i>
+                     </a>
+                  </div>
+                </div>
+              </div>
+          </div>
+      
+
+        <footer class="android-footer mdl-mega-footer">
+          <div class="mdl-mega-footer--top-section">
+            <div class="mdl-mega-footer--left-section">
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+            </div>
+            <div class="mdl-mega-footer--right-section">
+              <a class="mdl-typography--font-light" href="#top">
+                Back to Top
+                <i class="material-icons">expand_less</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-mega-footer--middle-section">
+            <p class="mdl-typography--font-light">Satellite imagery: © 2014 Astrium, DigitalGlobe</p>
+            <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
+          </div>
+
+          <div class="mdl-mega-footer--bottom-section">
+            <a class="android-link android-link-menu mdl-typography--font-light" id="version-dropdown">
+              Versions
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="version-dropdown">
+              <li class="mdl-menu__item">5.0 Lollipop</li>
+              <li class="mdl-menu__item">4.4 KitKat</li>
+              <li class="mdl-menu__item">4.3 Jelly Bean</li>
+              <li class="mdl-menu__item">Android History</li>
+            </ul>
+            <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
+              For Developers
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
+              <li class="mdl-menu__item">App developer resources</li>
+              <li class="mdl-menu__item">Android Open Source Project</li>
+              <li class="mdl-menu__item">Android SDK</li>
+              <li class="mdl-menu__item">Android for Work</li>
+            </ul>
+            <a class="android-link mdl-typography--font-light" href="">Blog</a>
+            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
+          </div>
+
+        </footer>
+      </div>
+    </div>
+    
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>

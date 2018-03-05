@@ -11,27 +11,28 @@ var thucPhamSchema = new Schema({
     name:{ type: String, required:true, unique: true},
     loaiThucPham:{type:String, required:true},
     info:{type: String, required:true},
-    giaTriDinhDuong: {type: number, default:100},
-    calo: {type: number, required:true},
-    lipid:  {type: number, default:0},
-    Cholesterol: {type: number, default:0},
-    Natri: {type: number, default:0},
-    Kali: {type: number, default:0},
-    Cacbohydrat: {type: number, default:0},
-    chatXo: {type: number, default:0},
-    duong: {type: number, default:0},
-    protein: {type: number, default:0},
-    vitaminA: {type: number, default:0},
-    vitaminC: {type: number, default:0},
-    vitaminD: {type: number, default:0},
-    vitaminB12: {type: number, default:0},
-    vitaminB6: {type: number, default:0},
-    canxi: {type: number, default:0},
-    sat: {type: number, default:0},
-    magie: {type: number, default:0},
-    chatBeoChuyenHoa: {type: number, default:0}
+    giaTriDinhDuong: {type:Number, default:100},
+    anh:{type:String,required: true},
+    calo: {type: Number, required:true},
+    lipid:  {type: Number, default:0},
+    Cholesterol: {type: Number, default:0},
+    Natri: {type: Number, default:0},
+    Kali: {type: Number, default:0},
+    Cacbohydrat: {type: Number, default:0},
+    chatXo: {type: Number, default:0},
+    duong: {type: Number, default:0},
+    protein: {type: Number, default:0},
+    vitaminA: {type: Number, default:0},
+    vitaminC: {type: Number, default:0},
+    vitaminD: {type: Number, default:0},
+    vitaminB12: {type: Number, default:0},
+    vitaminB6: {type: Number, default:0},
+    canxi: {type: Number, default:0},
+    sat: {type: Number, default:0},
+    magie: {type: Number, default:0},
+    chatBeoChuyenHoa: {type: Number, default:0}
 });
 
 
-var thucPham = mongoose.model("ThucPham", userSchema);
+var thucPham = mongoose.model("ThucPham", thucPhamSchema);
 module.exports = thucPham;
