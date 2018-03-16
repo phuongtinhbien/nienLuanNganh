@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Thêm thực phẩm</title>
+
+</head>
+<body>
+  
+  <div class="container">
+      <div class="d-flex justify-content-center">
+          <h2 class="display-4 text-title" style="font-size: 36px;">Thêm thực phẩm</h2>
+          <a name="next"></a>
+      </div>
+
+    <div class="align-middle">
+    <form action="/addfood" method="POST" class="form-inline" role="form"  enctype="multipart/form-data">
+
+      <div class="card-deck">
+        <div class="card">
+          <div class="container" style="margin-top:30px;width:100%">
+                        
+                    
+                  <h2 class="display-4 text-title" style="font-size: 20px;">Thông tin thực phẩm</h2>
+                  <label for="name"> Tên thực phẩm</label>
+                  <input class="form-control mt-2" type="text" name="name" id="name" placeholder="cà chua">
+                  
+                  <label for="loaiThucPham"> Loại thực phẩm</label>
+                  <select name="loaiThucPham" id="loaiThucPham" class="form-control mt-2" >
+                    <option value="chatBeo">Chất Béo</option>
+                    <option value="chatDam">Chất Đạm</option>
+                    <option value="chatBotDuong">Chất Bột Đường</option>
+                    <option value="vitamin&kc">Vitamin và khoáng chất</option>
+                  </select>
+
+                  <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" name="anh" class="custom-file-input" id="inputGroupFile01">
+                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                      </div>
+                  <label for="info"> Thông tin thực phẩm</label>
+                  <textarea class="form-control" id="info" aria-label="With textarea" style="width:100%" name=info></textarea>
+          </div>    
+        </div>
+        <div class="card">
+              <span class=" text-title" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:20px; margin:10px">Thông tin dinh dưỡng</span>
+              
+              <table class="table d-flex align-items-center" style="font-family:sans-serif;font-size:13px">
+                  <tbody>
+                      
+                      <tr>
+                          <th>Calo (kcal)</th>
+                          <td> <input class="form-control mt-2"   type="number" name="calo" placeholder="Lượng kcalo" min=0>
+                          </td>
+                      </tr>
+                      <tr>
+                          <tr>
+                              <th>Chất béo chuyển hóa</th>
+                              <td>                   <input class="form-control mt-2" step="any"   type="number" name="chatBeoChuyenHoa" placeholder="chất béo chuyển hóa" min=0>
+
+                              </td>
+                          </tr>
+                          <tr>
+                          <th>Lipid</th>
+                          <td><input class="form-control mt-2" step="any"   type="number" name="lipid" placeholder="Lipid" min=0></td>
+                      </tr>
+                      <tr>
+                          <th>Cholesterol</th>
+                          <td><input class="form-control mt-2" step="any"   type="number" name="cholesterol" placeholder="cholesterol" min=0></td>
+                      </tr>
+                      <tr>
+                          <th>Natri</th>
+                          <td>                  <input class="form-control mt-2" step="any"   type="number" name="natri" placeholder="natri" min=0></td>
+                      </tr>
+                      <tr>
+                          <th>Kali</th>
+                          <td>      <input class="form-control mt-2" step="any"   type="number" name="kali" placeholder="kali" min=0></td>
+                      </tr>
+                      <tr>
+                          <th>Cacbohydrat<br>
+                              <ul>
+                                  <li>Đường:</li>
+                                  <li>Chất xơ:</li>
+                              </ul>
+                          </th>
+                          <td>                  <input class="form-control mt-2" step="any"   type="number" name="cacbohydrat" placeholder="cacbohydrat" min=0><br>
+                              
+                            <input class="form-control mt-2" step="any"   type="number" name="duong" placeholder="duong" min=0><br>
+                            <input class="form-control mt-2" step="any"   type="number" name="chatXo" placeholder="chatXo" min=0>
+                              
+                          </td>
+                      </tr>
+                      <tr>
+                          <th>Protein</th>
+                          <td>                  <input class="form-control mt-2" step="any"  type="number" name="protein" placeholder="protein" min=0></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row">
+                            <div class="col">
+                              <tr>
+                                  <th>Vitamin A</th>
+                                  <td>
+                
+                
+                                    <input class="form-control mt-2" step="any"   type="number" name="vitaminA" placeholder="vitamin A" min=0></td>
+                              </tr>
+                              <tr>
+                                  <th>Vitamin C</th>
+                                  <td>                  <input class="form-control mt-2" step="any"   type="number" name="vitaminC" placeholder="vitamin C" min=0>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>Vitamin D</th>
+                                  <td>                  <input class="form-control mt-2" step="any"  type="number" name="vitaminD" placeholder="vitamin D" min=0>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>Vitamin B12</th>
+                                  <td>                  <input class="form-control mt-2" step="any"  type="number" name="vitaminB12" placeholder="vitamin B12" min=0>
+                                  </td>
+                              </tr>
+                            </div>
+                          <div class="col">
+                              <tr>
+                                  <th>Vitamin B6</th>
+                                  <td>                  <input class="form-control mt-2" step="any"  type="number" name="vitaminB6" placeholder="vitamin B6" min=0>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>Canxi</th>
+                                  <td>                  <input class="form-control mt-2" step="any"  type="number" name="canxi" placeholder="canxi" min=0>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>Sắt</th>
+                                  <td>                  <input class="form-control mt-2" step="any"  type="number" name="sat" placeholder="sắt" min=0>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th>Magiê</th>
+                                  <td>                  <input class="form-control mt-2" step="any"  type="number" name="magie" placeholder="magiê" min=0>
+                                  </td>
+                              </tr>
+                            </div>
+                          </div>
+                        </td>
+                        
+                      
+                      
+                      
+                        </tr>
+                      
+                      
+                  </tbody>
+                  
+              </table>
+              
+        </div>
+      </div>
+      <br>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-outline-success" >Lưu lại</button>
+        </div>
+    </form>
+    </div>
+
+  </div>
+  
+    
+  
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>         
+</body>
+</html>

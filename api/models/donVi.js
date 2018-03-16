@@ -5,14 +5,11 @@ mongoose.connect(uri);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
-var KCSchema = new Schema({
-    name:{type: String, required: true, unique:true},
-    key:{type: String, required: true, unique:true},
-    content: {type: String, required: true},
-    donVi:{type:Array, required:true}
+var donViSchema = new Schema({
+    name:{ type: String, required:true, unique: true, index:true},
+    kiHieu:{type: String, required:true},
+    key:{type: String, default:"dv_"+kiHieu}
 });
 
-KCSchema.index({name:"text"});
-var khoangChat = mongoose.model("khoangChat", KCSchema);
-
-module.exports = khoangChat;
+var donVi = mongoose.model("donVi", donViSchema);
+module.exports = donVi;

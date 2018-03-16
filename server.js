@@ -1,21 +1,22 @@
 //INITITIAL
 var express = require("express");
 const bodyParser= require('body-parser');
-var multer = require('multer')
+var multer = require('multer');
+
 var app = express();
-var Task = require('./api/models/food');
-var userCon = require('./api/controls/foodCon');
-var Task = require('./api/models/user');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+var TaskFood = require('./api/models/food');
+var foodCon = require('./api/controls/foodCon');
+var TaskUser = require('./api/models/user');
 var userCon = require('./api/controls/userCon');
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 var io = require('socket.io');
-// var server = require('http').createServer(app);
-// io = io.listen('80', '192.168.28.101');
 
 var routeUser = require("./api/routes/userRoutes");
 var routeFood = require("./api/routes/foodRoutes");
-app.listen(80,"192.168.220.124")
+app.listen(3000)
 
     //NOTIFICATON CONNECT SUCCESSFULLY
     console.log("SUCCESSFULLY......");
@@ -25,19 +26,31 @@ var uri = "mongodb://phuongtinhbien:phuongEa5AnbNL@cluster0-shard-00-00-ifmcb.mo
 
 //LUU FILE
 var storage = multer.diskStorage({
-    destination: function(req,file,cb){
-        cb(null, './upload')
+    destination: function (req, file, cb) {
+      //var code = JSON.parse(req.body.model).empCode;
+      var dest = './uploads/';
+      mkdirp(dest, function (err) {
+          if (err) cb(err, dest);
+          else cb(null, dest);
+      });
     },
-    filename: function(req,file,cb){
-        cb(null,file.orginalname)
+    filename: function (req, file, cb) {
+      cb(null, Date.now()+'-'+file.originalname);
     }
+  });
+  
+  var upload = multer({ storage: storage });
+  
+app.post('/upload', upload.single("anh"), function(req , res){
+      console.log(req.body);
+      res.redirect("/food");
 });
 var upload = multer({storage:storage});
 //DATABASE
 const Mongo = require('mongodb').MongoClient;
 app.set("view engine","ejs");
 app.set("views", "./views")
-app.use(bodyParser.urlencoded({extended: true}));
+
 //ADMIN
 app.get("/admin_bg",function(req,res){
     res.sendFile(__dirname+"/assets/bg_admin_login.png")
@@ -49,15 +62,7 @@ app.get("/admin",function(req,res){
 });
 routeUser(app);
 routeFood(app);
-// app.get("/admin/:id", function(req,res){
 
-// });
-
-app.post("/search",(req,res)=>{
-    var name = req.body.key;
-    console.log(name);
-    res.redirect("/food/"+name);
-});
 //HOME
 app.get("/", function(req,res){
     Mongo.connect(uri, (err, db)=>{
@@ -107,6 +112,10 @@ app.get("/thucPham_img/:id",function(req,res){
     var id = req.params.id;
     res.sendFile(__dirname+"/assets/"+id+".png");
 })
+app.get("/food_img/:id",(req,res)=>{
+    var id = req.params.id;
+    res.sendFile(__dirname+"/assets/uploads/"+id);
+})
 
 
 app.use(session({
@@ -140,18 +149,26 @@ app.get("/thucPham/:id",function(req,res){
             function(err,result){
                 if (err) throw err;
                 console.log(result);
-                res.render("thucPham",result[0],(err)=>{
-                    if (err) return res.redirect("/");
-                    else
-                        res.render("thucPham",result[0]);
-
-                });
+                dbo.collection("thucphams").find({loaiThucPham: id}).toArray(
+                    function(err, result1){
+                        if (err) throw err;
+                        res.render("thucPham",{listThucPham:result1,info:result[0]});
+                    }
+                )
+               
+                
             }
         );
         
     });
 });
 
+app.get("/add_thucPham",(req,res)=>{
+    res.render("add_ThucPham");
+});
+app.get("/add_vitaminkc",(req,res)=>{
+    res.render("add_vitamin&kc");
+});
 //DINH DUONG
 app.get("/dinhDuong/:id",function(req,res){
     var id = req.params.id;

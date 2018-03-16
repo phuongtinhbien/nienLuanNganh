@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-  Type = mongoose.model('vitamin');
+  Type = mongoose.model('donVi');
 
 exports.list_all_type = function(req, res) {
   Type.find({}, function(err, type) {

@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+  nav ul li { 
+  list-style:none;
+  margin:10px;
+  float: right; 
+}
+.text-regular{
+    font-weight: normal;
+    font-size: 15px;
+}
+.text-title{
+    margin-top: 20px;
+    font-size: 32px;
+}
+.text-gray-soft{
+    color: #838E95;
+}
+
+
+</style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Thông tin về <%=data.name%></title>
+  
+</head>
+<body>
+
+        <%- include("partials/nav") %>
+        <%- include("partials/full_containSearch") %>
+        <div class="dropdown-divider" style=" margin-top: 50px;margin-left:50px; margin-right:50px"></div>
+        <div class="container" style="margin-top:20px;background-image:url(<%-data.bg%>); background-repeat:no-repeat;background-size:contain; background-position:right">
+                <div class="d-flex justify-content-center">
+                        <h2 class="display-4 text-title" style="font-size: 36px; margin-bottom:10px">Vai trò của <%-data.name%></h2>
+                        <a name="next"></a>
+                    </div>
+                   
+                <div class="card-deck">
+                        <div class="card">
+                                <div class="container" style="margin-top:30px">
+                                        
+                                    
+                                    <img src="/food_img/<%-data.anh%>" class="img-responsive" alt="Image">
+                                    
+                                            <blockquote class="blockquote" style="text-align:justify;">
+                                                <p class="ml-5" style="font-size:14px;text-align:justify;"><%-data.info%></p>
+                                            </blockquote>
+                                       
+                                        
+                                    </div>
+                                    </div>
+                                  <div class="card">
+                                        <span class=" text-title" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:20px; margin:10px">Thông tin dinh dưỡng</span>
+                                        
+                                        <table class="table table-hover" style="font-family:sans-serif;font-size:13px">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Giá trị dinh dưỡng</th>
+                                                
+                                                    <td><%-data.giaTriDinhDuong%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Calo (kcal)</th>
+                                                    <td><%-data.calo%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Lipid</th>
+                                                    <td><%-data.lipid%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Cholesterol</th>
+                                                    <td><%-data.giaTriDinhDuong%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Natri</th>
+                                                    <td><%-data.cholesterol%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Kali</th>
+                                                    <td><%-data.kali%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Cacbohydrat<br>
+                                                        <ul>
+                                                            <li>Đường:</li>
+                                                            <li>Chất xơ:</li>
+                                                        </ul>
+                                                    </th>
+                                                    <td><%-data.cacbohydrat%><br>
+                                                        
+                                                            <%-data.duong%><br>
+                                                             <%-data.chatXo%>
+                                                       
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Protein</th>
+                                                    <td><%-data.protein%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Vitamin A</th>
+                                                    <td><%-data.vitainA%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Vitamin C</th>
+                                                    <td><%-data.vitaminC%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Vitamin D</th>
+                                                    <td><%-data.vitaminD%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Vitamin B12</th>
+                                                    <td><%-data.vitaminB12%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Vitamin B6</th>
+                                                    <td><%-data.vitaminB6%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Canxi</th>
+                                                    <td><%-data.canxi%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Sắt</th>
+                                                    <td><%-data.sat%></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Magiê</th>
+                                                    <td><%-data.magie%></td>
+                                                </tr>
+                                            </tbody>
+                                            
+                                        </table>
+                                        
+                                    </div>
+            
+                        </div>
+                       
+        </div>
+        <div class="dropdown-divider" style=" margin-top: 50px;margin-left:50px; margin-right:50px"></div>
+
+
+    <div class="container">
+            <div class="d-flex justify-content-center">
+                    <h2 class="display-4 text-title mb-4" style="font-size: 36px;">Thực phẩm cùng nhóm</h2>
+                    <a name="next"></a>
+                </div>
+            
+            <div class="table-responsive">
+                <table class="table" style="border-color:transparent">
+                   
+                    <tbody>
+                        <tr style="border-color:transparent">
+                            <% for(var i=0; i<list.length; i++) {%>
+                                <td style="border-color:transparent"> <%- include("partials/item_search_thucPham",list[i]) %></td>
+                            <%}%>   
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+                    
+                       
+                           
+                     
+            
+    </div>
+
+
+
+
+
+        <%- include("partials/footer") %>
+     
+
+        
+        
+          
+           
+    </body>
+</html>

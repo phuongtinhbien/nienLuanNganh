@@ -8,17 +8,17 @@ var db = mongoose.connection;
 
 var thucPhamSchema = new Schema({
 
-    name:{ type: String, required:true, unique: true},
+    name:{ type: String, required:true, unique: true, index:true},
     loaiThucPham:{type:String, required:true},
     info:{type: String, required:true},
     giaTriDinhDuong: {type:Number, default:100},
     anh:{type:String,required: true},
     calo: {type: Number, required:true},
     lipid:  {type: Number, default:0},
-    Cholesterol: {type: Number, default:0},
-    Natri: {type: Number, default:0},
-    Kali: {type: Number, default:0},
-    Cacbohydrat: {type: Number, default:0},
+    cholesterol: {type: Number, default:0},
+    natri: {type: Number, default:0},
+    kali: {type: Number, default:0},
+    cacbohydrat: {type: Number, default:0},
     chatXo: {type: Number, default:0},
     duong: {type: Number, default:0},
     protein: {type: Number, default:0},
@@ -32,7 +32,6 @@ var thucPhamSchema = new Schema({
     magie: {type: Number, default:0},
     chatBeoChuyenHoa: {type: Number, default:0}
 });
-
-
+thucPhamSchema.index({name:"text"});
 var thucPham = mongoose.model("ThucPham", thucPhamSchema);
 module.exports = thucPham;

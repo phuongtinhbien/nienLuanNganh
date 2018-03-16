@@ -38,33 +38,12 @@ body{
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Quản trị</title>
+    <title>Trophic - Tra cứu dinh dưỡng</title>
 </head>
 <body >
         <%- include("partials/nav") %>
         
-        <div class="container" style="padding-top:30px">
-            <div class="d-flex justify-content-center">
-                
-                <img src="/nutri"  alt="Image" height="150px">
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                
-                <h1 class="display-4 text-bold">Tra cứu dinh dưỡng</h1>
-            </div>
-            <br><br>
-               
-            <%- include("partials/search") %>
-            <div class= "d-flex justify-content-center">
-                        <h5 class="text-gray-soft text-regular">Gợi ý: "thịt bò", "vitamin A", "chất béo",...</h5>
-            </div>
-            <!-- <div class="d-flex justify-content-center" style="margin-top:20px">
-                    <a href="#next" class="rounded-circle" ><i class="material-icons display-4" style="font-size:50px; color:#28a745">arrow_downward</i></a>
-
-            </div> -->
-
-        </div>
+        <%- include("partials/full_containSearch") %>
 
         <div class="dropdown-divider" style=" margin-top: 50px;margin-left:50px; margin-right:50px"></div>
         <div class="container">
@@ -88,7 +67,7 @@ body{
                         </div>
                         <div class="card-footer text-muted">
                                 <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/chatBeo" style="border-radius:25px">Xem thêm</a>
+                                <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/<%-result[0].key%>" style="border-radius:25px">Xem thêm</a>
                                 </div>
                         </div>
                     </div>
@@ -100,7 +79,7 @@ body{
                             </div>
                             <div class="card-footer text-muted">
                                     <div class="d-flex justify-content-center">
-                                    <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/chatDam" style="border-radius:25px">Xem thêm</a>
+                                    <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/<%-result[1].key%>" style="border-radius:25px">Xem thêm</a>
                                     </div>
                             </div>
                     </div>
@@ -113,7 +92,7 @@ body{
                             </div>
                             <div class="card-footer text-muted">
                                     <div class="d-flex justify-content-center">
-                                    <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/chat" style="border-radius:25px">Xem thêm</a>
+                                    <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/<%-result[2].key%>" style="border-radius:25px">Xem thêm</a>
                                     </div>
                             </div>
                     </div>
@@ -125,7 +104,7 @@ body{
                             </div>
                             <div class="card-footer text-muted">
                                     <div class="d-flex justify-content-center">
-                                    <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/chatBeo" style="border-radius:25px">Xem thêm</a>
+                                    <a class="btn btn-outline-light my-4 my-sm-0" href="/thucPham/<%-result[3].key%>" style="border-radius:25px">Xem thêm</a>
                                     </div>
                             </div>
                     </div>

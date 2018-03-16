@@ -13,6 +13,7 @@ var typeFoodSchema = new Schema({
     content: {type: String, required: true}
 });
 
-var typeFood = mongoose.model("loaiThucPham", userSchema);
+typeFoodSchema.index({name:"text"});
+var typeFood = mongoose.model("loaiThucPham", typeFoodSchema);
 
 module.exports = typeFood;

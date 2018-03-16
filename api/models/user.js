@@ -5,7 +5,7 @@ var uri = "mongodb://phuongtinhbien:phuongEa5AnbNL@cluster0-shard-00-00-ifmcb.mo
 mongoose.connect(uri);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
-console.log(db);
+
 
 var userSchema = new Schema({
     name: String,
