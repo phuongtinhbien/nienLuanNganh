@@ -1,5 +1,11 @@
-<b>Carbohydrate</b> là một trong 3 chất đa lượng căn bản của cơ thể con người (ngoài Chất đạm Protein và Chất béo).
-<br><br>
-<b>Carbohydrate</b> được tìm thấy trong rất nhiều nguồn thực phẩm cả có lợi và có hại cho sức khoẻ – bánh mì, đậu đỗ, sữa, bỏng ngô, khoai tây, bánh quy, mì, nước ngọt, bánh ngọt… Chúng cũng tồn tại ở nhiều dạng khác nhau. Những dạng phổ biến và dồi dào về số lượng nhất là đường, chất xơ và tinh bột.
-<br><br>
-Thực phẩm giàu chất bột đường chiếm một phần quan trọng trong chế độ dinh dưỡng. <b>Carbohydrate</b> cung cấp cho cơ thể đường glucose. Đường glucose sau đấy sẽ được chuyển hoá thành năng lượng cho các bộ phận cơ thể và phục vụ hoạt động thể chất.
+{
+ filter: {
+  _id: '5a5af1213b16b51cf44e0576',
+  name: 'Chất Béo',
+  img: '/thucPham_img/chatBeo',
+  bg: '/thucPham_img/chatBeobg',
+  key: 'chatBeo',
+  intro: 'Một số <b>CHẤT BÉO</b> và một số <b>LOẠI DẦU</b> khi sử dụng trong chế độ ăn uống hàng ngày sẽ rất tốt cho sức khoẻ.',
+  content: '<b>Chất béo (Lipid) </b>là một nhóm chất dinh dưỡng chính trong khẩu phần thức ăn hàng ngày. Lipid được coi là cần thiết cho sự sống, trước hết bởi đó là nguồn cung cấp năng lượng quan trọng (1 gam lipid khi đốt cháy trong cơ thể có thể cho 9 kcal - bằng hơn 2 lần gluxit hoặc protein), do khả năng sinh nhiệt của lipid là tuỳ thuộc lượng oxy chứa trong phân tử chất béo. <br><br><b>Chất béo</b> còn là nguồn cung cấp nhiều chất cần thiết khác đối với cơ thể như lecitin, các axit béo chưa no linoleic, arachidonic và linolenic.  Trong cơ thể chứa khoảng 10% chất béo (ở người bình thường) thường tập trung dưới da dự trữ cho cơ thể sử dụng khi cần thiết. Chất lượng và số lượng của chất béo dự trữ tùy thuộc vào số lượng thức ăn có chứa chất béo. Khi lượng chất béo vào cơ thể vượt quá nhu cầu, cơ thể sẽ tích luỹ mỡ. Sự tích lũy này xảy ra ngay cả trong trường hợp ăn quá nhiều gluxit, vì từ nguồn gluxit, cơ thể vẫn có thể chuyển hóa thành lipit.  Thành phần chính của chất béo là các este phức tạp của glyxerin và các axit béo tự do, do đó tính chất của chất béo phụ thuộc rất lớn vào các axit béo này. Ngoài ra còn có mặt của các thành phần các chất sinh học khác như lexitin, xephalin, steroit, một số vitamin…'
+ }
+}

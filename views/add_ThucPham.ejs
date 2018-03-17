@@ -37,15 +37,13 @@
                     <option value="vitamin&kc">Vitamin và khoáng chất</option>
                   </select>
 
-                  <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                        <div class="custom-file">
-                          <input type="file" name="anh" class="custom-file-input" id="inputGroupFile01">
-                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
-                      </div>
+                  <div class="form-group">
+                    <label class="custom-file">
+                      <input type="file" name="anh" id="anh" placeholder="" class="custom-file-input" aria-describedby="fileHelpId">
+                      <span class="custom-file-control">Chọn ảnh</span>
+                    </label>
+                    <small id="fileHelpId" class="form-text text-muted">file kích thước dưới 2MB</small>
+                  </div>
                   <label for="info"> Thông tin thực phẩm</label>
                   <textarea class="form-control" id="info" aria-label="With textarea" style="width:100%" name=info></textarea>
           </div>    

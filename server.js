@@ -68,7 +68,7 @@ app.get("/", function(req,res){
     Mongo.connect(uri, (err, db)=>{
         if (err) throw err;
         var dbo = db.db('TrophicDB')
-        dbo.collection('loaiThucPham').find().toArray(
+        dbo.collection('loaithucphams').find().toArray(
             function(err,result){
                 if (err) throw err;
                 console.log(result);
@@ -117,7 +117,6 @@ app.get("/food_img/:id",(req,res)=>{
     res.sendFile(__dirname+"/assets/uploads/"+id);
 })
 
-
 app.use(session({
     secret: 'work hard',
     resave: true,
@@ -145,7 +144,8 @@ app.get("/thucPham/:id",function(req,res){
     Mongo.connect(uri, (err, db)=>{
         if (err) throw err;
         var dbo = db.db('TrophicDB')
-        dbo.collection('loaiThucPham').find({key:id}).toArray(
+      
+        dbo.collection('loaithucphams').find({key:id}).toArray(
             function(err,result){
                 if (err) throw err;
                 console.log(result);
@@ -193,6 +193,7 @@ app.get("/dinhDuong/:id",function(req,res){
 app.get("/thongTinThem",function(req,res){
     res.render("thongTinThem");
 });
+
 app.get("/social/:id",function(req,res){
     var id = req.params.id;
     res.sendFile(__dirname+"/assets/social/"+id+".png");

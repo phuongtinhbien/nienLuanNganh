@@ -32,4 +32,5 @@ module.exports = function(app) {
       .delete(User.delete_a_type);
 
     app.route("/food_search").post(User.search_a_type);
+    app.route("/food_tongHop").post(User.tongHop_a_type);
 };
