@@ -8,14 +8,32 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 var TaskFood = require('./api/models/food');
 var foodCon = require('./api/controls/foodCon');
+
 var TaskUser = require('./api/models/user');
 var userCon = require('./api/controls/userCon');
+
+var TaskVitamin = require('./api/models/vitamin');
+var vitaminCon = require('./api/controls/vitaminCon');
+
+var TaskTypeFood = require('./api/models/typeFood');
+var typeFoodCon = require('./api/controls/typeFoodCon');
+
+var TaskKhoangChat = require('./api/models/khoangChat');
+var khoangChatCon = require('./api/controls/khoangChatCon');
+
+var TaskDonVi = require('./api/models/donVi');
+var donViCon = require('./api/controls/donViCon');
+
 var session = require('express-session');
 var bcrypt = require('bcrypt');
 var io = require('socket.io');
 
 var routeUser = require("./api/routes/userRoutes");
 var routeFood = require("./api/routes/foodRoutes");
+var routeTypeFood = require("./api/routes/typeFoodRoutes");
+var routeVitamin = require("./api/routes/vitaminRoutes");
+var routeKhoangChat = require("./api/routes/khoangChatRoutes");
+var routeDonVi = require("./api/routes/donViRoutes");
 app.listen(3000)
 
     //NOTIFICATON CONNECT SUCCESSFULLY
@@ -60,8 +78,20 @@ app.get("/admin",function(req,res){
     else
         return res.render("signin")
 });
+
+app.get("/icon/:id",(req,res)=>{
+    var id = req.params.id;
+    res.sendFile(__dirname+"/assets/icon/"+id+".png");
+
+})
+
 routeUser(app);
 routeFood(app);
+routeKhoangChat(app);
+routeVitamin(app);
+routeTypeFood(app);
+routeDonVi(app);
+
 
 //HOME
 app.get("/", function(req,res){
@@ -164,11 +194,28 @@ app.get("/thucPham/:id",function(req,res){
 });
 
 app.get("/add_thucPham",(req,res)=>{
+   
     res.render("add_ThucPham");
 });
 app.get("/add_vitaminkc",(req,res)=>{
-    res.render("add_vitamin&kc");
+    Mongo.connect(uri, (err, db)=>{
+        if (err) throw err;
+        var dbo = db.db('TrophicDB')
+      
+        dbo.collection('donvis').find({}).toArray(
+            function(err,result){
+                if (err) throw err;
+                console.log(result);
+                res.render("add_vitamin&kc",{result:result});
+                    }
+                )
+            }
+        );
 });
+app.get("/add_donVi",(req,res)=>{
+    res.render("add_donVi");
+});
+
 //DINH DUONG
 app.get("/dinhDuong/:id",function(req,res){
     var id = req.params.id;

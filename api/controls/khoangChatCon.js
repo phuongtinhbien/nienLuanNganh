@@ -18,6 +18,21 @@ exports.create_a_type = function(req, res) {
   });
 };
 
+exports.search_a_type = function(req, res) {
+  Type.find(
+    { $text : { $search : req.body.name } }, 
+    { score : { $meta: "textScore" } }
+)
+.sort({ score : { $meta : 'textScore' } })
+.exec(function(err, type) {
+  
+  var i = type.length;
+    console.log(type);
+    if (err) res.send(err);
+    var data = {title:req.body.name,len: i,data: type};
+    res.render("list_search",data);
+});
+};
 
 exports.read_a_type = function(req, res) {
   Type.find({key:req.params.typeId}, function(err, type) {

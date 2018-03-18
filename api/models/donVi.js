@@ -8,7 +8,7 @@ var db = mongoose.connection;
 var donViSchema = new Schema({
     name:{ type: String, required:true, unique: true, index:true},
     kiHieu:{type: String, required:true},
-    key:{type: String, default:"dv_"+kiHieu}
+    key:{type: String, default:"dv_"+this.kiHieu}
 });
 
 var donVi = mongoose.model("donVi", donViSchema);

@@ -1,3 +1,22 @@
+<script>
+        function load(){
+            $("#type_search").on('load', function (e) {
+             var optionSelected = $("option:selected", this);
+             var valueSelected = this.value;
+             console.log(valueSelected);
+             document.getElementById("form_search").setAttribute("action","/"+valueSelected);
+         });
+        }
+        function update(){
+         $("#type_search").on('change', function (e) {
+             var optionSelected = $("option:selected", this);
+             var valueSelected = this.value;
+             console.log(valueSelected);
+             document.getElementById("form_search").setAttribute("action","/"+valueSelected);
+         });
+         
+        }
+    </script>
 <div class="container" style="padding-top:30px">
     <div class="d-flex justify-content-center">
         
@@ -9,12 +28,20 @@
         <h1 class="display-4 text-bold">Tra cứu dinh dưỡng</h1>
     </div>
     <br><br>
-       
+      
     <div class= "d-flex justify-content-center">
-        <form action="/food_search" method="POST" class="form-inline my-4 my-lg-2">
-            
-                <input class="form-control form-control-lg mr-sm-2 " name="name" style="border-radius:25px" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-lg btn-outline-success text-center my-4 my-sm-0" style="border-radius:25px" type="submit">Search</button>
+        <form action="/all_search" method="POST" id="form_search" class="form-inline my-4 my-lg-2">
+                <input class="form-control form-control-lg mr-sm-2 " name="name" style="border-radius: 25px 0px 0px 25px" type="search" placeholder="Search" aria-label="Search">
+                <div class="form-group">
+                    <select class="custom-select form-control-lg mr-sm-2" onclick="update()" id="type_search" name="type_search" style="border-radius:0px">
+                        <option value="all_search" selected> Tất cả</option>
+                        <option value= "food_search">Thực phẩm</option>
+                        <option value="khoangChat_search"> Khoáng chất</option>
+                        <option value="vitamin_search">Vitamin</option>
+                        
+                    </select>
+                </div>
+                <button class="btn btn-lg btn-success text-center my-4 my-sm-0" style="border-radius: 0px 25px 25px 0px" type="submit">Search</button>
         </form>
                 
 </div>

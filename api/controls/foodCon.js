@@ -18,7 +18,7 @@ exports.create_a_type = function(req, res) {
   new_type.anh = req.file.originalname;
   new_type.save(function(err, type) {
     if (err)
-      res.send(err);
+    res.render("error_add_update");
     res.json(type);
   });
 };
