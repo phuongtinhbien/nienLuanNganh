@@ -33,7 +33,7 @@ var routeTypeFood = require("./api/routes/typeFoodRoutes");
 var routeVitamin = require("./api/routes/vitaminRoutes");
 var routeKhoangChat = require("./api/routes/khoangChatRoutes");
 var routeDonVi = require("./api/routes/donViRoutes");
-app.listen(3000)
+app.listen(80,"192.168.28.102")
 
     //NOTIFICATON CONNECT SUCCESSFULLY
     console.log("SUCCESSFULLY......");

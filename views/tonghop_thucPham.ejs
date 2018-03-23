@@ -53,7 +53,8 @@
 </style>
 </head>
 <script>
-        var key=[ "giaTriDinhDuong",
+        var key=[
+        "giaTriDinhDuong",
             "lipid",
             "cholesterol",
             "natri",
@@ -71,62 +72,123 @@
             "sat",
             "magie",
             "chatBeoChuyenHoa",
-            "calo"
+            "calo",
+            
         ]
+        let calo = 2200;
         var key1 =["protein","calo", "cacbohydrat","lipid"];
-        var class = ["alert alert-danger","alert alert-success","alert alert-warning" ]
-            function update(){
-                var result= {
-                    "giaTriDinhDuong":0,
-                    "lipid":0,
-                    "cholesterol":0,
-                    "natri":0,
-                    "kali":0,
-                    "cacbohydrat":0,
-                    "chatXo":0,
-                    "duong":0,
-                    "protein":0,
-                    "vitaminA":0,
-                    "vitaminC":0,
-                    "vitaminD":0,
-                    "vitaminB12":0,
-                    "vitaminB6":0,
-                    "canxi":0,
-                    "sat":0,
-                    "magie":0,
-                    "chatBeoChuyenHoa":0,
-                    "calo":0,
-                }
-                var checked = [];
-                $(".custom-control-input:checked").each(function() {
-                    console.log($(this).val());
-                    checked.push($.parseJSON($(this).val()));
-                    
-                });
-                checked.forEach(function (val,i){
-                    key.forEach((value, j)=>{
-                        result[value]+=val[value];
-                    })
-                });
+        let lop= ["alert alert-success","alert alert-warning","alert alert-danger"];
+        let head = ["Thật tuyệt vời!","Tạm ổn!", "Không tốt!"]
+        let notify = ["Bạn đã có một bữa ăn đầy đủ dinh dưỡng.", "Lượng thực phẩm của bạn chưa cung cấp đủ dưỡng chất.","Bữa ăn không đảm bảo đủ chất dinh dưỡng."]
+        function update(){
+            var result= {
+        
+                "giaTriDinhDuong":0,
+                "lipid":0,
+                "cholesterol":0,
+                "natri":0,
+                "kali":0,
+                "cacbohydrat":0,
+                "chatXo":0,
+                "duong":0,
+                "protein":0,
+                "vitaminA":0,
+                "vitaminC":0,
+                "vitaminD":0,
+                "vitaminB12":0,
+                "vitaminB6":0,
+                "canxi":0,
+                "sat":0,
+                "magie":0,
+                "chatBeoChuyenHoa":0,
+                "calo":0,
+            }
+            var count=0;
+            var checked = [];
+            var damBao={"protein":{check:true,min:10, max:35},"calo":{check:true,min:90, max:100}, "cacbohydrat":{check:true,min:45, max:65}, "lipid":{check:true,min:20, max:25}};
+            $(".custom-control-input:checked").each(function() {
+                console.log($(this).val());
+                checked.push($.parseJSON($(this).val()));
                 
+            });
+            checked.forEach(function (val,i){
+                var kl = $("#"+val._id).val();
                 key.forEach((value, j)=>{
-
-                        document.getElementById(value).innerText= result[value];
-                });
-                var tong = result.calo + result.cacbohydrat+ result.lipid+ result.protein;
-                key1.forEach((value,j)=>{
-                    if (tong == 0)
-                    {
-                        $( "#chart_"+value ).css({"width": "0%"});
-                    }
-                    else
-                         $( "#chart_"+value ).css("width", Math.ceil(result[value]*100/tong)+"%");
+                    result[value]+=Math.ceil((kl/100)*val[value]);
                     
-                });
+                })
+
+
+            });
+            
+            key.forEach((value, j)=>{
+           
+                    document.getElementById(value).innerText= result[value];
+            });
+
+            var tong =result.cacbohydrat+ result.lipid+ result.protein;
+            key1.forEach((value,j)=>{
+                if (value == "calo"){
+                    if(Math.ceil(result[value]*100/calo)>= damBao[value].min & 
+                        Math.ceil(result[value]*100/calo)<= damBao[value].max)
+                            damBao[value].check = true;
+                    else
+                            damBao[value].check = false;
+                }
+                else{
+                    if(Math.ceil(result[value]*100/tong)>= damBao[value].min &
+                        Math.ceil(result[value]*100/tong)<= damBao[value].max)
+                            damBao[value].check = true;
+                            else
+                            damBao[value].check = false;
+                }
+                
+            });
+            console.log(damBao);
+           
+            key1.forEach((value,j)=>{
+                if (count>3)
+                count=2;
+                if (value == "calo"){
+                }
+                if (!damBao[value].check)
+                    count+=1;
+               
+            })
+            if (count>3)
+                count=2;
+            console.log(count);
+          
+            key1.forEach((value,j)=>{
+            if (tong == 0)
+            {  
+                $( "#chart_"+value ).css({"width": "0%"});
+                $( "#chart_"+value ).text("");
+                damBao[value].check = false;
+                document.getElementById("lop").classList.toggle(lop[count]);
+                document.getElementById("head").innerText= head[count];
+                document.getElementById("notify").innerText=notify[count];
+
+             
+            }
+            else{
+                if (value =="calo"){
+                    $( "#chart_"+value ).css("width", Math.ceil(result[value]*100/calo)+"%");
+                    $( "#chart_"+value ).text(Math.ceil(result[value]*100/calo)+"%");
+                }
+                else{
+                    $( "#chart_"+value ).css("width", Math.ceil(result[value]*100/tong)+"%");
+                    $( "#chart_"+value ).text(Math.ceil(result[value]*100/tong)+"%");
+                }
+                document.getElementById("lop").classList.toggle(lop[count]);
+                document.getElementById("head").innerText= head[count];
+                document.getElementById("notify").innerText=notify[count];
+            }
+        });
         }
 </script>
 <body onload="update()">
-    <div  style="background-image:url('/thucPham_img/index_bg.jpg'), linear-gradient(to bottom,rgba(0, 0, 0,0), #ffffff);background-blend-mode:lighten; background-repeat:no-repeat;background-size:cover; ">
+    <div  style="background-image:url('/thucPham_img/bg.png'), linear-gradient(to bottom,rgba(0, 0, 0,0),rgba(255, 255, 255, 0.91), #ffffff);background-blend-mode:lighten; background-repeat:no-repeat;background-size: covercontain; ">
 
         <%- include("partials/nav") %>
         <div class="d-flex justify-content-center" style="margin-bottom:50px">
@@ -134,22 +196,22 @@
                 <img src="/nutri"  alt="Image">
             </div>
         <%- include("partials/full_bua_an_dd") %>
-        <div class="dropdown-divider" style=" margin-top: 50px;margin-left:50px; margin-right:50px"></div>
+        <div class="dropdown-divider" style="opacity:0; margin-top: 50px;margin-left:50px; margin-right:50px"></div>
         
         <div class="container" >
 
                 <div class="d-flex justify-content-center">
-                        <h2 class="display-4" style="font-size: 36px; margin-bottom:20px">Bữa ăn dinh dưỡng</h2>
+                        <h2 class="display-4" style="font-size: 36px; margin-bottom:20px"><strong>Bữa ăn dinh dưỡng</strong></h2>
                         <a name="next"></a>
                 </div>
                 <div class="card-deck">
-                        <div class="card" style="border-color:transparent; background-color:transparent">
+                        <div class="card" style="border-color:transparent;box-shadow: 0px 0px 50px rgba(0, 0, 0, .15);">
                             <div class="container" style="margin-top:10px">
-                                    <div class="alert alert-success" role="alert">
-                                            <h4 class="alert-heading">Thật tuyệt vời!</h4>
-                                            <p id="comment">Bạn đã có một bữa ăn đầy đủ dinh dưỡng.</p>
+                                    <div id ="lop"  role="alert" style="border-radius:20px; border-color: transparent">
+                                            <h4 id="head"></h4>
+                                            <p id="notify"></p>
                                             <hr>
-                                            <p class="mb-0">Hãy thử thêm hoặc bớt danh sách thực phẩm để kiểm tra.</p>
+                                            <p class="mb-0"></p>
                                           </div>
                                     <span class=" text-title" style="font-size:20px; margin-bottom:20px ">Phần trăm dinh dưỡng</span><br><br>
                                 <div class="container">
@@ -183,7 +245,7 @@
                                     
                             </div>
                         </div>
-                        <div class="card" >
+                        <div class="card" style="border-color:transparent;box-shadow: 0px 0px 50px rgba(0, 0, 0, .15);" >
                             <span class=" text-title" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:20px; margin:10px">Thông tin dinh dưỡng</span>
                             
                             <table class="table table-hover"   style="font-family:sans-serif;font-size:13px">
