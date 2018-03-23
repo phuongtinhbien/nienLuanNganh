@@ -45,13 +45,21 @@ exports.log_in = function(req, res){
   console.log(req.body);
     Type.findOne({username: req.body.InputEmail}, function(err, type){
       if (err) throw err;
-      res.render("admin");
       console.log(type);
-      type.comparePassword(req.body.password, function(err, isMatch){
-        console.log(err);
-        if (err) {return res.render("admin")};
-          if (isMatch)
-            return res.render("admin");
+      type.comparePassword(req.body.InputPassword, function(err, isMatch){
+        
+        if (err) throw err;
+          if (isMatch){
+            console.log(isMatch);
+           req.session.username = req.body.InputEmail;
+
+            
+            res.redirect("/signin") ;
+            
+          }
+          else{
+            res.redirect("/admin");
+          }
       });
     });
   }

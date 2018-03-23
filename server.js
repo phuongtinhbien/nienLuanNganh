@@ -2,7 +2,7 @@
 var express = require("express");
 const bodyParser= require('body-parser');
 var multer = require('multer');
-
+var session = require('express-session');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,9 +24,8 @@ var khoangChatCon = require('./api/controls/khoangChatCon');
 var TaskDonVi = require('./api/models/donVi');
 var donViCon = require('./api/controls/donViCon');
 
-var session = require('express-session');
+
 var bcrypt = require('bcrypt');
-var io = require('socket.io');
 
 var routeUser = require("./api/routes/userRoutes");
 var routeFood = require("./api/routes/foodRoutes");
@@ -40,7 +39,14 @@ app.listen(3000)
     console.log("SUCCESSFULLY......");
 
 //GET DATA FROM #FORM
-var uri = "mongodb://phuongtinhbien:phuongEa5AnbNL@cluster0-shard-00-00-ifmcb.mongodb.net:27017,cluster0-shard-00-01-ifmcb.mongodb.net:27017,cluster0-shard-00-02-ifmcb.mongodb.net:27017/TrophicDB?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
+var uri = "mongodb://phuongtinhbien:phuongEa5AnbNL@cluster0-shard-00-00-ifmcb.mongodb.net:27017,cluster0-shard-00-01-ifmcb.mongodb.net:27017,cluster0-shard-00-02-ifmcb.mongodb.net:27017/TrophicDB?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin";
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+  }));
+
 
 //LUU FILE
 var storage = multer.diskStorage({
@@ -74,7 +80,14 @@ app.get("/admin_bg",function(req,res){
     res.sendFile(__dirname+"/assets/bg_admin_login.png")
 })
 app.get("/admin",function(req,res){
-    if (req.session) return res.render("admin");
+    
+    console.log(req.session);
+    res.render("signin")
+});
+app.get("/signin",function(req,res){
+    sess= req.session;
+    console.log(sess.username);
+    if (JSON.stringify(sess.username)) return res.render("admin");
     else
         return res.render("signin")
 });
@@ -95,6 +108,7 @@ routeDonVi(app);
 
 //HOME
 app.get("/", function(req,res){
+
     Mongo.connect(uri, (err, db)=>{
         if (err) throw err;
         var dbo = db.db('TrophicDB')
@@ -140,23 +154,15 @@ app.get("/buaAnDinhDuong", function(req,res){
 
 app.get("/thucPham_img/:id",function(req,res){
     var id = req.params.id;
-    res.sendFile(__dirname+"/assets/"+id+".png");
+    res.sendFile(__dirname+"/assets/"+id);
 })
 app.get("/food_img/:id",(req,res)=>{
     var id = req.params.id;
     res.sendFile(__dirname+"/assets/uploads/"+id);
 })
 
-app.use(session({
-    secret: 'work hard',
-    resave: true,
-    saveUninitialized: false
-  }));
-
-//SIGN IN
 
 app.get('/logout', function(req, res, next) {
-    if (req.session) {
       // delete session object
       req.session.destroy(function(err) {
         if(err) {
@@ -165,8 +171,7 @@ app.get('/logout', function(req, res, next) {
           return res.redirect('/admin');
         }
       });
-    }
-});
+    });
 
 //THUC PHAM
 app.get("/thucPham/:id",function(req,res){
@@ -197,7 +202,7 @@ app.get("/add_thucPham",(req,res)=>{
    
     res.render("add_ThucPham");
 });
-app.get("/add_vitaminkc",(req,res)=>{
+app.get("/add_vitamin",(req,res)=>{
     Mongo.connect(uri, (err, db)=>{
         if (err) throw err;
         var dbo = db.db('TrophicDB')
@@ -206,7 +211,22 @@ app.get("/add_vitaminkc",(req,res)=>{
             function(err,result){
                 if (err) throw err;
                 console.log(result);
-                res.render("add_vitamin&kc",{result:result});
+                res.render("add_vitamin",{result:result});
+                    }
+                )
+            }
+        );
+});
+app.get("/add_khoangChat",(req,res)=>{
+    Mongo.connect(uri, (err, db)=>{
+        if (err) throw err;
+        var dbo = db.db('TrophicDB')
+      
+        dbo.collection('donvis').find({}).toArray(
+            function(err,result){
+                if (err) throw err;
+                console.log(result);
+                res.render("add_khoangChat",{result:result});
                     }
                 )
             }

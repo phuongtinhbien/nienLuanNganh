@@ -9,7 +9,7 @@ var typeFoodSchema = new Schema({
     name:{type: String, required: true, unique:true},
     key:{type: String, required: true, unique:true},
     img:{type: String, required: true, unique:true},
-    key:{type: String, required: true, unique:true},
+    bg:{type: String, required: true, unique:true},
     intro: {type: String, required: true},
     content: {type: String, required: true}
 });

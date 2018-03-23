@@ -17,31 +17,30 @@
          
         }
     </script>
-<div class="container" style="padding-top:30px">
+<div class="container" >
     <div class="d-flex justify-content-center">
         
-        <img src="/nutri"  alt="Image" height="150px">
+        <img src="/nutri"  alt="Image">
     </div>
     <br>
     <div class="d-flex justify-content-center">
         
-        <h1 class="display-4 text-bold">Tra cứu dinh dưỡng</h1>
+        <h1 class="display-4"><strong>Tra cứu dinh dưỡng</strong></h1>
     </div>
     <br><br>
       
     <div class= "d-flex justify-content-center">
-        <form action="/all_search" method="POST" id="form_search" class="form-inline my-4 my-lg-2">
-                <input class="form-control form-control-lg mr-sm-2 " name="name" style="border-radius: 25px 0px 0px 25px" type="search" placeholder="Search" aria-label="Search">
+        <form action="/food_search" method="POST" id="form_search" class="form-inline my-2 my-lg-2">
+                <input class="form-control form-control-lg mr-sm-2 " name="name" style="background-color:white;border-width:2px;border-color:white;border-radius: 25px 0px 0px 25px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .25);" type="search" placeholder="Search" required aria-label="Search">
                 <div class="form-group">
-                    <select class="custom-select form-control-lg mr-sm-2" onclick="update()" id="type_search" name="type_search" style="border-radius:0px">
-                        <option value="all_search" selected> Tất cả</option>
+                    <select class="custom-select form-control-lg mr-sm-2" onclick="update()" id="type_search" name="type_search" style="border-color:white;border-width:2px;background-color:white;border-radius:0px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .25);">
                         <option value= "food_search">Thực phẩm</option>
                         <option value="khoangChat_search"> Khoáng chất</option>
                         <option value="vitamin_search">Vitamin</option>
                         
                     </select>
                 </div>
-                <button class="btn btn-lg btn-success text-center my-4 my-sm-0" style="border-radius: 0px 25px 25px 0px" type="submit">Search</button>
+                <button class="btn btn-lg btn-success text-center my-4 my-sm-0" style="border-radius: 0px 25px 25px 0px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .25);" type="submit">Search</button>
         </form>
                 
 </div>

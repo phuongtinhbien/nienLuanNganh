@@ -21,6 +21,7 @@
 }
 
 
+
 </style>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -34,24 +35,46 @@
 </head>
 <body>
 
+        <% var tong = data.calo + data.protein + data.cacbohydrat + data.lipid%>
         <%- include("partials/nav") %>
         <%- include("partials/full_containSearch") %>
         <div class="dropdown-divider" style=" margin-top: 50px;margin-left:50px; margin-right:50px"></div>
         <div class="container" style="margin-top:20px;background-image:url(<%-data.bg%>); background-repeat:no-repeat;background-size:contain; background-position:right">
                 <div class="d-flex justify-content-center">
-                        <h2 class="display-4 text-title" style="font-size: 36px; margin-bottom:10px">Vai trò của <%-data.name%></h2>
+                        <h2 class="display-4 text-title" style="font-size: 36px; margin-bottom:10px">Thông tin của <%-data.name%></h2>
                         <a name="next"></a>
                     </div>
                    
                 <div class="card-deck">
                         <div class="card" style="border-color:transparent">
                                 <div class="container" style="margin-top:30px">
-                                        
+                                        <label for="calo">Calo (kcal)</label>
+                                    <div class="progress" style="height:20px; border-radius:25px">
+                                        <div class="progress-bar bg-success" id="calo" role="progressbar" style="width: <%-Math.ceil(data.calo*100/tong) %>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><%-Math.ceil(data.calo*100/tong) %>%</div>
+                                      </div>
+                                      <br>
+                                      <label for="cacbohydrat">Cacbohydrat</label>
+                                      <div class="progress"  style="height:20px; border-radius:25px">
+                                        <div class="progress-bar bg-info" id="cacbohydrat" role="progressbar" style="width: <%-Math.ceil(data.cacbohydrat*100/tong) %>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><%-Math.ceil(data.cacbohydrat*100/tong) %>%</div>
+                                      </div>
+                                      <br>
+                                      <label for="chatBeo">Chất béo</label>
+                                      <div class="progress"  style="height:20px; border-radius:25px">
+                                        <div class="progress-bar bg-warning" id="chatBeo" role="progressbar" style="width: <%-Math.ceil(data.lipid*100/tong) %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><%-Math.ceil(data.lipid*100/tong) %>%</div>
+                                      </div>
+                                      <br>
+                                      <label for="protein">Protein</label>
+                                      <div class="progress"  style="height:20px; border-radius:25px">
+                                        <div class="progress-bar bg-danger" id="protein" role="progressbar" style="width: <%-Math.ceil(data.protein*100/tong) %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><%-Math.ceil(data.protein*100/tong) %>%</div>
+                                      </div>
+                                      <br>
                                     <img class="card-img-top" src="/food_img/<%-data.anh%>"style="margin:auto;border-radius:25px;  object-fit: contain;" alt="Image">
                                     
                                             <blockquote class="blockquote" style="text-align:justify;">
                                                 <p class="ml-5" style="font-size:14px;text-align:justify;"><%-data.info%></p>
                                             </blockquote>
+                                            
+
                                        
                                         
                                 </div>
@@ -76,11 +99,11 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Cholesterol</th>
-                                                    <td><%-data.giaTriDinhDuong%></td>
+                                                    <td><%-data.cholesterol%></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Natri</th>
-                                                    <td><%-data.cholesterol%></td>
+                                                    <td><%-data.natri%></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Kali</th>

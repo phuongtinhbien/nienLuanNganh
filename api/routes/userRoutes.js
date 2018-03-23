@@ -1,5 +1,12 @@
 module.exports = function(app) {
     var User = require('../controls/userCon');
+    var session = require('express-session');
+    app.use(session({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: true }
+    }));
   
     // User Routes
     app.route('/user')

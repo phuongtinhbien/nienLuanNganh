@@ -25,8 +25,8 @@ userSchema.methods.getUID = function(){
     return this.uid;
 }
 
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(this.password,candidatePassword, function(err, isMatch) {
+userSchema.methods.comparePassword = function(candidatePassword,cb) {
+    bcrypt.compare(candidatePassword,this.password, function(err, isMatch) {
         if (err) return cb(err);
         else return cb(null, isMatch);
     });

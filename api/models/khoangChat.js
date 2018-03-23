@@ -9,7 +9,8 @@ var KCSchema = new Schema({
     name:{type: String, required: true, unique:true},
     key:{type: String, required: true, unique:true},
     content: {type: String, required: true},
-    donVi:{type:Array, required:true}
+    donVi:{type:Array, required:true},
+    ncc: {type: String, required: true},
 });
 
 KCSchema.index({name:"text"});
