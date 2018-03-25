@@ -165,9 +165,9 @@
                 $( "#chart_"+value ).css({"width": "0%"});
                 $( "#chart_"+value ).text("");
                 damBao[value].check = false;
-                document.getElementById("lop").classList.toggle(lop[count]);
-                document.getElementById("head").innerText= head[count];
-                document.getElementById("notify").innerText=notify[count];
+                // document.getElementById("lop").classList.toggle(lop[count]);
+                // document.getElementById("head").innerText= head[count];
+                // document.getElementById("notify").innerText=notify[count];
 
              
             }
@@ -180,9 +180,9 @@
                     $( "#chart_"+value ).css("width", Math.ceil(result[value]*100/tong)+"%");
                     $( "#chart_"+value ).text(Math.ceil(result[value]*100/tong)+"%");
                 }
-                document.getElementById("lop").classList.toggle(lop[count]);
-                document.getElementById("head").innerText= head[count];
-                document.getElementById("notify").innerText=notify[count];
+                // document.getElementById("lop").classList.toggle(lop[count]);
+                // document.getElementById("head").innerText= head[count];
+                // document.getElementById("notify").innerText=notify[count];
             }
         });
         }
@@ -193,7 +193,7 @@
         <%- include("partials/nav") %>
         <div class="d-flex justify-content-center" style="margin-bottom:50px">
             
-                <img src="/nutri"  alt="Image">
+                <img src="/nutri"  alt="Image" height="250">
             </div>
         <%- include("partials/full_bua_an_dd") %>
         <div class="dropdown-divider" style="opacity:0; margin-top: 50px;margin-left:50px; margin-right:50px"></div>

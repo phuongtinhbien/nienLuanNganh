@@ -39,7 +39,7 @@
                     <label  for="donVi">Đơn vị</label>
                     <br>
                    
-                    <select name="donVi" id="donVi" class="form-control mt-2" >
+                    <select name="donVi" id="donVi" class="form-control mt-2" multiple >
                         <% for (var i=0;i<result.length;i++){%>
                             <option value="<%-result[i].kiHieu%>"><%-result[i].name%></option>
                             <%}%>
@@ -54,7 +54,12 @@
                         <textarea type="text" class="form-control" id="content" name="content" placeholder="Thông tin về chất này"></textarea>
                 </div>
             </div>
-            
+            <div class="p-2">
+                <div class="form-group">
+                        <label class="sr-only" for="ncc">Nguồn cung cấp</label>
+                        <textarea type="text" class="form-control" id="ncc" name="ncc" placeholder="Thông tin về chất này"></textarea>
+                </div>
+            </div>
 
       
           

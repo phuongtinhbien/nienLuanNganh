@@ -33,7 +33,7 @@ var routeTypeFood = require("./api/routes/typeFoodRoutes");
 var routeVitamin = require("./api/routes/vitaminRoutes");
 var routeKhoangChat = require("./api/routes/khoangChatRoutes");
 var routeDonVi = require("./api/routes/donViRoutes");
-app.listen(80,"192.168.28.102")
+app.listen(3000)
 
     //NOTIFICATON CONNECT SUCCESSFULLY
     console.log("SUCCESSFULLY......");
@@ -146,7 +146,7 @@ app.get("/brand", function(req,res){
     res.sendFile(__dirname + '/assets/brand/brand.png');
 });
 app.get("/nutri", function(req,res){
-    res.sendFile(__dirname + '/assets/nutrition-icon.png');
+    res.sendFile(__dirname + '/assets/nutrition-icon.svg');
 });
 app.get("/buaAnDinhDuong", function(req,res){
     res.sendFile(__dirname + '/assets/buaAnDinhDuong.png');

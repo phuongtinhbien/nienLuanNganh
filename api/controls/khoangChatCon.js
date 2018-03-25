@@ -75,7 +75,7 @@ exports.search_a_type = function(req, res) {
     if (err) res.send(err);
     const key= type[0].key;
     var text = {[key]:{$gt:0}};
-    Type1.find({[key]:{$gt:0}}).sort({[key]:1}).exec((err,type1)=>{
+    Type1.find({[key]:{$gt:0}}).sort({[key]:-1}).exec((err,type1)=>{
       var i = type1.length;
       console.log(type1);
       var data = {title:req.body.name,len: i,data: type[0], data1:type1};

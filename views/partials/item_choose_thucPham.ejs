@@ -22,9 +22,15 @@
         
         <div class="p-2 w-50 p-3">
                 <div class="d-flex align-items-center">
-                    <span   style="text-transform:uppercase">
-                    <input type="number" name="" id="<%-data._id%>" oninput="update()" class="form-control" value="100" min="0" max="5000" step="2" placeholder="Khối lượng (g)" required="required" title="">
-                     </span>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" style="border-color: transparent; background-color: #C8E6C9 ;color:black;border-radius: 25px 0px 0px 25px">KL</span>
+                        </div>
+                        <input type="number" class="form-control text-center" style=" text-align: center; border-color: #C8E6C9; background-color: white ;color:black" id="<%-data._id%>" oninput="update()" value="100" min="0" max="5000" step="5"  aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                          <span class="input-group-text" style="border-color: transparent; background-color: #C8E6C9 ;color:black;border-radius: 0px 25px 25px 0px">(g)</span>
+                        </div>
+                      </div>
                 </div>
         </div>
         <div class="p-2 w-25 p-3">

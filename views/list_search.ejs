@@ -53,7 +53,7 @@
     </style>
 </head>
 <body>
-        <div  style="background-image:url('/thucPham_img/index_bg.jpg'), linear-gradient(to bottom,rgba(0, 0, 0,0), #ffffff);background-blend-mode:lighten; background-repeat:no-repeat;background-size:cover; ">
+        <div  style="background-image:url('/thucPham_img/index_bg.jpg'), linear-gradient(to bottom,rgba(0, 0, 0,0), #ffffff);background-blend-mode:lighten; background-repeat:no-repeat;background-size:cover contain; ">
         
             <%- include("partials/nav") %>
         
@@ -69,12 +69,13 @@
             </div>
             
             <div class="container px-2 py-2 mt-4 align-middle">
-                    <div class= "px-2 py-2">
-                            <div class="card-columns">
+                    
+                            <div class="row align-item-center">
                             <% for(var i=1; i<=len; i++) {%>
+                                <div class="col mb-4">
                                     <%- include("partials/item_search_thucPham",data[i-1]) %>
+                                </div>
                                  <% } %>
-                            </div>
                             </div>
             </div>
             
