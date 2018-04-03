@@ -1,9 +1,10 @@
 //INITITIAL
 var express = require("express");
 const bodyParser= require('body-parser');
-var multer = require('multer');
+
 var session = require('express-session');
 var app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 var TaskFood = require('./api/models/food');
@@ -21,10 +22,11 @@ var typeFoodCon = require('./api/controls/typeFoodCon');
 var TaskKhoangChat = require('./api/models/khoangChat');
 var khoangChatCon = require('./api/controls/khoangChatCon');
 
+
 var TaskDonVi = require('./api/models/donVi');
 var donViCon = require('./api/controls/donViCon');
 
-
+const detect = require('./detect_image');
 var bcrypt = require('bcrypt');
 
 var routeUser = require("./api/routes/userRoutes");
@@ -33,6 +35,24 @@ var routeTypeFood = require("./api/routes/typeFoodRoutes");
 var routeVitamin = require("./api/routes/vitaminRoutes");
 var routeKhoangChat = require("./api/routes/khoangChatRoutes");
 var routeDonVi = require("./api/routes/donViRoutes");
+var multer = require('multer');
+var mkdirp = require('mkdirp');
+var storage = multer.diskStorage({
+destination: function (req, file, cb) {
+  //var code = JSON.parse(req.body.model).empCode;
+  var dest = './assets/uploads/detect';
+  mkdirp(dest, function (err) {
+    console.log(err);
+      if (err) cb(err, dest);
+      else cb(null, dest);
+  });
+},
+filename: function (req, file, cb) {
+  cb(null,file.originalname);
+}
+});
+
+var upload = multer({ storage: storage });
 app.listen(3000)
 
     //NOTIFICATON CONNECT SUCCESSFULLY
@@ -48,20 +68,8 @@ app.use(session({
   }));
 
 
-//LUU FILE
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      //var code = JSON.parse(req.body.model).empCode;
-      var dest = './uploads/';
-      mkdirp(dest, function (err) {
-          if (err) cb(err, dest);
-          else cb(null, dest);
-      });
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now()+'-'+file.originalname);
-    }
-  });
+
+
   
   var upload = multer({ storage: storage });
   
@@ -69,7 +77,7 @@ app.post('/upload', upload.single("anh"), function(req , res){
       console.log(req.body);
       res.redirect("/food");
 });
-var upload = multer({storage:storage});
+
 //DATABASE
 const Mongo = require('mongodb').MongoClient;
 app.set("view engine","ejs");
@@ -270,3 +278,6 @@ app.get("/social/:id",function(req,res){
 app.get("/tinhDinhDuong",(req,res)=>{
     res.render("tinhDinhDuong");
 });
+
+app.post("/detect_image",upload.single("detect"),detect.detect_image);
+app.post("/detect_meal",upload.single("detect_meal"),detect.detect_image1);

@@ -9,6 +9,7 @@ var db = mongoose.connection;
 var thucPhamSchema = new Schema({
 
     name:{ type: String, required:true, unique: true, index:true},
+    en_name:{ type: String},
     loaiThucPham:{type:String, required:true},
     info:{type: String, required:true},
     giaTriDinhDuong: {type:Number, default:100},

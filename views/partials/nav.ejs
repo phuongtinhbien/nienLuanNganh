@@ -1,44 +1,88 @@
 <nav class="navbar navbar-expand-lg navbar-light  navbar-static-top" role="navigation" style="height:80px">
-        <div class="container">
-          <ul class="nav-left">
-              <nav class="navbar navbar-light">
-                  <a class="navbar-brand" href="/home">
-                    <b class="display-4" style="font-size:32px"><strong>TROPHIC</strong></b>
-                  </a>
-              </nav>
-          </ul>
-          <ul class="nav-right">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+    <div class="container">
+        <ul class="nav-left">
+            <nav class="navbar navbar-light">
+                <a class="navbar-brand" href="/home">
+                    <b class="display-4" style="font-size:32px">
+                        <strong>TROPHIC</strong>
+                    </b>
+                </a>
+            </nav>
+        </ul>
+        <ul class="nav-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="/home"><b>TRANG CHỦ</b><span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home">
+                            <b>TRANG CHỦ</b>
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
-                
-                    <li class="nav-item dropdown" >
-                      <a class="nav-link dropdown-toggle" href="/thucPham" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        THỰC PHẨM
-                      </a>
-                      <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/thucPham/chatBeo">Chất béo</a>
-                        <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                        <a class="dropdown-item" href="/thucPham/chatDam">Chất đạm</a>
-                        <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                        <a class="dropdown-item" href="/thucPham/chatBotDuong">Chất bột đường</a>
-                        <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
-                        <a class="dropdown-item" href="/thucPham/vitamin&kc">Vitamin & Khoáng chất</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/thucPham" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            THỰC PHẨM
+                        </a>
+                        <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/thucPham/chatBeo">Chất béo</a>
+                            <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                            <a class="dropdown-item" href="/thucPham/chatDam">Chất đạm</a>
+                            <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                            <a class="dropdown-item" href="/thucPham/chatBotDuong">Chất bột đường</a>
+                            <div class="dropdown-divider" style="margin-left:20px; margin-right:20px"></div>
+                            <a class="dropdown-item" href="/thucPham/vitamin&kc">Vitamin & Khoáng chất</a>
                         </div>
                     </li>
-                   
 
-                       
+                    <li class=" ml-3 nav-item active">
+
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Quét ảnh</button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                            style="border-color:white;border-radius: 25px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .25); font-size:16px">
+                            <div class="modal-dialog" role="document" style="border-color:white;border-radius: 25px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .25); font-size:16px">
+                                <div class="modal-content" style="border-color:transparent;border-radius: 25px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .25); font-size:16px">
+                                    <div class="modal-header text-center">
+
+
+
+                                        <form action="/detect_image" method="POST" role="form" enctype="multipart/form-data">
+                                            <h5 class="modal-title text-center" id="exampleModalLabel">Quét ảnh</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label class="custom-file">
+                                                <input type="file" name="detect" id="detect" placeholder="" class="custom-file-input" aria-describedby="fileHelpId" accept="image/*"
+                                                    capture="user">
+                                                <span class="custom-file-control"></span>
+                                            </label>
+                                            <small id="fileHelpId" class="form-text text-muted">Chọn file ảnh chi tiết cao</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-center">
+
+                                        <button type="submit" style="background-color: #00E676;border-color:#00E676;border-radius: 25px; box-shadow: 0px 0px 10px rgba(0, 0, 0, .25); font-size:16px"
+                                            class="btn btn-primary">Quét ảnh</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
                 </ul>
-                 
+
             </div>
-          </ul>
-       </div>
-        
+        </ul>
+    </div>
+
 </nav>
